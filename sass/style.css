@@ -1,0 +1,137 @@
+body {
+  font-family: Helvetica, sans-serif;
+  background-color: #b88a6c; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+h1 {
+  text-align: center;
+  font-size: 2em;
+  color: #fff;
+  padding: 5px; }
+  @media screen and (max-width: 420px) {
+    h1 {
+      font-size: 1.5em;
+      margin: 5px 0; } }
+
+#main-block {
+  width: 400px;
+  margin: 1em auto;
+  padding: 10px;
+  background-color: #dfc7b4;
+  border-color: #922f25;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 5px; }
+  @media screen and (max-width: 420px) {
+    #main-block {
+      width: 280px;
+      margin: 5px auto;
+      padding: 5px; } }
+
+#break, #session {
+  width: 40%;
+  float: left;
+  margin: 1em; }
+  @media screen and (max-width: 420px) {
+    #break, #session {
+      width: 30%;
+      margin: 10px; } }
+  #break h2, #session h2 {
+    font-size: 1.2em;
+    text-align: center;
+    color: #661b15; }
+    @media screen and (max-width: 420px) {
+      #break h2, #session h2 {
+        font-size: 1em; } }
+
+#session {
+  float: right; }
+
+.change-val {
+  width: 80px;
+  margin: 10px auto;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #661b15; }
+  .change-val span {
+    margin: 0 5px;
+    cursor: pointer; }
+    @media screen and (max-width: 420px) {
+      .change-val span {
+        font-size: 0.9em; } }
+
+.timer-container {
+  clear: both;
+  width: 181.81818px;
+  height: 181.81818px;
+  margin: 1em auto;
+  background-color: #da5944;
+  color: #fff;
+  cursor: pointer;
+  border-color: #922f25;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 50%; }
+  @media screen and (max-width: 420px) {
+    .timer-container {
+      width: 175px;
+      height: 175px;
+      margin: 10px auto; } }
+  .timer-container h2 {
+    font-size: 1.2em;
+    text-transform: capitalize;
+    text-align: center;
+    margin: 2em 0 10px 0; }
+  .timer-container p {
+    text-align: center;
+    margin: 5px 0; }
+
+.start {
+  border-radius: 5px;
+  cursor: pointer; }
+  .start img {
+    display: block;
+    width: 80px;
+    margin: 1em auto; }
+  .start:hover {
+    filter: brightness(80%); }
+
+.extra-controls {
+  width: 95px;
+  margin: 0.5em auto;
+  cursor: pointer; }
+  .extra-controls img {
+    width: 35px;
+    margin: 5px;
+    filter: invert(99%); }
+  .extra-controls img:hover {
+    filter: invert(0%); }
+
+.hidden {
+  display: none; }
+
+.shape-animation {
+  animation: 5s circular; }
+
+.shape-animation-alternate {
+  border-radius: 5px;
+  transition: border-radius 5s linear; }
+
+footer p {
+  text-align: center;
+  color: #fff; }
+  @media screen and (max-width: 420px) {
+    footer p {
+      margin: 3px 0;
+      font-size: 0.8em; } }
+
+@keyframes circular {
+  0% {
+    border-radius: 0%; }
+  100% {
+    border-radius: 50%; } }
+
+/*# sourceMappingURL=style.css.map */
