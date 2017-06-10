@@ -1,6 +1,6 @@
 $(document).ready(function(){
-	var sessionDuration = 0.5;
-	var breakDuration = 0.1;
+	var sessionDuration = 25;
+	var breakDuration = 5;
 	var timer;
 	var timerbreak;
 	var isSession;
