@@ -45,7 +45,7 @@ h1 {
     color: #661b15; }
     @media screen and (max-width: 420px) {
       #break h2, #session h2 {
-        font-size: 1em; } }
+        font-size: 1.1em; } }
 
 #session {
   float: right; }
