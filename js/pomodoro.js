@@ -1,6 +1,6 @@
 $(document).ready(function(){
-	var sessionDuration = 25;
-	var breakDuration = 5;
+	var sessionDuration = 0.5;
+	var breakDuration = 0.1;
 	var timer;
 	var timerbreak;
 	var isSession;
@@ -72,6 +72,9 @@ $('img#reset').on('click', function() {
 	clearInterval(timer);
 	clearInterval(timerbreak);
 	timerWorking = false;
+	getPaused = false;
+	rest = 0;
+	isSession = false;
 	$('div.timer-container').addClass('start');
 	$('div.timer-container').removeClass('shape-animation');
 	$('div.timer-container').addClass('shape-animation-alternate');
@@ -85,24 +88,19 @@ $('img#reset').on('click', function() {
 //helpers
 // timer function for session
 function sessionTimer(endtime) {
+	$('#timer-text').text('session');
 	isSession = true;
 	rest = 0;
 	timerWorking = true;
-	var current = new Date();
-	var end = current.getTime() + minutesToMiliseconds(endtime);
-	$('#timer-text').text('session');
+	var end = new Date().getTime() + minutesToMiliseconds(endtime);
 	
 	//Session timer
 	timer = setInterval(function(){
-		var today = new Date();
-		var timeNow = today.getTime();
+		var timeNow = new Date().getTime();
 		var distance = end - timeNow;
-		
-		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-	  	var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-		minutes = checkTimeFormat(minutes);
-		seconds = checkTimeFormat(seconds);
-
+		var minutes = checkTimeFormat(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
+	  	var seconds = checkTimeFormat(Math.floor((distance % (1000 * 60)) / 1000));
+				
 		$('p#timer-status').text(minutes + ':' + seconds);	
 
 		if (distance < 0) {
@@ -115,22 +113,16 @@ function sessionTimer(endtime) {
 
 //timer function for break
 function breakTimer() {
-	isSession = false;
-	var current = new Date();
-	var end = current.getTime() + minutesToMiliseconds(breakDuration);
 	$('#timer-text').text('break');
+	isSession = false;
+	var end = new Date().getTime() + minutesToMiliseconds(breakDuration);
 	
 	//Break timer
 	timerbreak = setInterval(function(){
-		var today = new Date();
-		var timeNow = today.getTime();
+		var timeNow = new Date().getTime();
 		var distance = end - timeNow;
-		//console.log(distance);
-
-		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-	  	var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-		minutes = checkTimeFormat(minutes);
-		seconds = checkTimeFormat(seconds);
+		var minutes = checkTimeFormat(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
+	  	var seconds = checkTimeFormat(Math.floor((distance % (1000 * 60)) / 1000));
 
 		$('p#timer-status').text(minutes + ':' + seconds);	
 
